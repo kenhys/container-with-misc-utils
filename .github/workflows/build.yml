@@ -52,7 +52,7 @@ jobs:
           platforms: linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          # kenhys/container-with-misc-utils:bookworm
+          # kenhys/container-with-misc-utils:noble
           tags: noble
           # dare to use old mediatype (application/vnd.docker.distribution.manifest.v2+json)
           outputs: oci-mediatypes=false

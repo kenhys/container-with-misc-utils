@@ -39,7 +39,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           # kenhys/container-with-misc-utils:bookworm
-          tags: bookworm
+          tags: ${{ env.REPOSITORY }}:bookworm
           # dare to use old mediatype (application/vnd.docker.distribution.manifest.v2+json)
           outputs: oci-mediatypes=false
       - name: Build and push noble for arm64
@@ -53,6 +53,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           # kenhys/container-with-misc-utils:noble
-          tags: noble
+          tags: ${{ env.REPOSITORY }}:noble
           # dare to use old mediatype (application/vnd.docker.distribution.manifest.v2+json)
           outputs: oci-mediatypes=false

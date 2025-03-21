@@ -37,20 +37,6 @@ jobs:
           tags: ${{ env.REPOSITORY }}:bookworm
           # dare to use old mediatype (application/vnd.docker.distribution.manifest.v2+json)
           outputs: oci-mediatypes=false
-      - name: Build and push noble for arm64
-        if: ${{ endsWith(matrix.component, "ubuntu/noble" }}
-        uses: docker/build-push-action@v6
-        with:
-          context: ${{ matrix.component }}
-          provenance: false
-          push: true
-          platforms: linux/arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          # kenhys/container-with-misc-utils:noble
-          tags: ${{ env.REPOSITORY }}:noble
-          # dare to use old mediatype (application/vnd.docker.distribution.manifest.v2+json)
-          outputs: oci-mediatypes=false
   ubuntu:
     strategy:
       fail-fast: false
